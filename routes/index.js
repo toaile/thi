@@ -96,6 +96,13 @@ router.post('/editimgdone', function(req, res, next) {
   })  })
 
 });
+//get all ====-------------------------------------------------------------
+router.get('/getAll', function(req, res, next) {
+  Img.find({},function (err,data){
+    res.send(data)
+  })
+
+});
 
 
 
