@@ -40,8 +40,12 @@
 
 <!--        // sua xoa-->
         <div style="display: grid; margin-top: 30px; grid-template-columns:  1fr;">
-          <a style="text-decoration-line: none;font-size: 18px;text-align: center" href="/">Download</a>
+          <form method="post" action="/">
+            <input name="__iddown" hidden value=<%= data[i].id %>>
+            <input name="" hidden value=<%= data[i].tenAnh %>>
 
+            <button style="width:90%;border-radius: 10px; background-color: chartreuse" type="submit">Download</button>
+          </form>
         </div>
       </div>
     <% } %>
