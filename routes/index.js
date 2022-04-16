@@ -30,7 +30,9 @@ var imgSchema = new mongoose.Schema({
   tenAnh:'string',
   noiDung: 'string',
   ngaythang: 'string',
-  linkAnh : 'string'
+  linkAnh : 'string',
+  giaBan : 'string',
+  linkAnh2 : 'string'
 })
 //lien ket Schema voi mongoDB qua mongoose
 var Img = mongoose.model('img',imgSchema);
@@ -39,13 +41,17 @@ router.post('/addImg', function(req, res, next) {
   var noiDung = req.body.noiDung
   var ngayThang = req.body.ngayThang
   var linkAnh = req.body.linkAnh
+  var giaBan =req.body.giaBan
+  var linkAnh2 =req.body.linkAnh2
 
   console.log(tenAnh + noiDung +ngayThang + linkAnh)
   const img = new Img({
     tenAnh:tenAnh,
     noiDung: noiDung,
     ngaythang: ngayThang,
-    linkAnh : linkAnh
+    linkAnh : linkAnh,
+    giaBan: giaBan,
+    linkAnh2: linkAnh2
   })
 
   img.save(function (err){

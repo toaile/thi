@@ -27,7 +27,7 @@
   <br>
   <br>
   <form method="post"  action="/timkiem" enctype="application/x-www-form-urlencoded">
-    <input style="width: 30%" name="id_tk" placeholder="Nhap id sinh vien ..." > <button type="submit">Tim kiem</button>
+    <input style="width: 30%" name="id_tk" placeholder="Nhap ma Oto  ..." > <button type="submit">Tim kiem</button>
   </form>
 </div>
 <div class="container">
@@ -35,11 +35,13 @@
   <% if(data.length != 0){ %>
     <% for (var i=0;i<data.length;i++){ %>
       <div style="width: 30%;height:auto;margin: 10px;background-color: ghostwhite ;float: left">
-        <h2 style="text-align: center">Sinh Vien</h2>
-        <h3><%= data[i].tenAnh%></h3>
-        <h5><%= data[i].noiDung%></h5>
-        <h5><%= data[i].ngaythang%></h5>
-        <h5><%= data[i].linkAnh%></h5>
+        <h2 style="text-align: center">OTO </h2>
+        <h3>Ma Oto: <%= data[i].tenAnh%></h3>
+        <h5>Nhan hieu :<%= data[i].noiDung%></h5>
+        <h5>Nam san xuat :<%= data[i].ngaythang%></h5>
+        <h6>Gia goc :<%= data[i].linkAnh%></h6>
+        <h6>Gia ban :<%= data[i].giaBan%></h6>
+        <img style="width: 100%;height: 200px" src="<%= data[i].linkAnh2%>">
 
 
 <!--        // sua xoa-->
@@ -48,14 +50,14 @@
             <input  name="__id" hidden value=<%= data[i].id %>>
             <button style="width: 90% ;border-radius: 10px;background-color: red" type="submit">Xóa</button>
           </form>
-          <form method="post" action="/editimg">
-            <input name="__id" hidden value=<%= data[i].id %>>
-            <input name="__tenAnh" hidden value=<%= data[i].tenAnh %>>
-            <input name="__noiDung" hidden value=<%= data[i].noiDung %>>
-            <input name="__ngayThang" hidden value=<%= data[i].ngaythang %>>
-            <input name="__linkAnh" hidden value=<%= data[i].linkAnh %>>
-            <button style="width:90%;border-radius: 10px; background-color: chartreuse" type="submit">Sửa</button>
-          </form>
+<!--          <form method="post" action="/editimg">-->
+<!--            <input name="__id" hidden value=<%= data[i].id %>>-->
+<!--            <input name="__tenAnh" hidden value=<%= data[i].tenAnh %>>-->
+<!--            <input name="__noiDung" hidden value=<%= data[i].noiDung %>>-->
+<!--            <input name="__ngayThang" hidden value=<%= data[i].ngaythang %>>-->
+<!--            <input name="__linkAnh" hidden value=<%= data[i].linkAnh %>>-->
+<!--            <button style="width:90%;border-radius: 10px; background-color: chartreuse" type="submit">Sửa</button>-->
+<!--          </form>-->
 
         </div>
       </div>
