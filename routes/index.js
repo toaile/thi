@@ -15,7 +15,7 @@ router.get('/', function(req, res, next) {
 
 });
 router.get('/add', function(req, res, next) {
-  res.render('add', { title: 'Express' });
+  res.render('add', { title: '' });
 });
 router.get('/editdata', function(req, res, next) {
   var data=Img.find({},function (err,data){
@@ -43,6 +43,7 @@ router.post('/addImg', function(req, res, next) {
   var linkAnh = req.body.linkAnh
   var giaBan =req.body.giaBan
   var linkAnh2 =req.body.linkAnh2
+
 
   console.log(tenAnh + noiDung +ngayThang + linkAnh)
   const img = new Img({
