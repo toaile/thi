@@ -45,8 +45,8 @@
 
 
 <!--        // sua xoa-->
-        <div style="display: grid; margin-top: 30px; grid-template-columns: 1fr 1fr;">
-          <form  method="post" action="/deleteImg" >
+        <div style="display: grid; margin-top: 30px; grid-template-columns: 1fr ;">
+          <form style="text-align: center"  method="post" action="/deleteImg" >
             <input  name="__id" hidden value=<%= data[i].id %>>
             <button style="width: 90% ;border-radius: 10px;background-color: red" type="submit">Xóa</button>
           </form>
