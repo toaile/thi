@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 /* GET home page. */
-var dbb="mongodb+srv://admin:tl126998t@cluster0.sut40.mongodb.net/mydata?retryWrites=true&w=majority"
+var dbb="mongodb+srv://admin1:admin@cluster0.sut40.mongodb.net/mydata1?retryWrites=true&w=majority"
 const  mongoose = require('mongoose');
 mongoose.connect(dbb).catch(err => {
   console.log("co loi xay ra "+err);
@@ -56,9 +56,12 @@ router.post('/addImg', function(req, res, next) {
       mess=err
     }
     console.log(mess)
-    res.render('add', { title: 'Express' });
-  })
 
+  })
+  var data=Img.find({},function (err,data){
+    console.log(err)
+    res.render('index', { title: 'Express' ,data :data});
+  });
 });
 //xoa anh------------------------------------------------------------------------------------
 router.post('/deleteImg', function(req, res, next) {
@@ -72,9 +75,8 @@ router.post('/deleteImg', function(req, res, next) {
   })
   var data=Img.find({},function (err,data){
     console.log(err)
-    res.render('editdata', { title: 'Express' ,data :data});
-
-  })
+    res.render('index', { title: 'Express' ,data :data});
+  });
 });
 // sua anh---------------------------------------------------------------------------
 router.post('/editimg', function(req, res, next) {
@@ -89,10 +91,10 @@ router.post('/editimg', function(req, res, next) {
 });
 router.post('/editimgdone', function(req, res, next) {
   Img.updateOne({_id:req.body.__idEdit},{tenAnh:req.body.__tenAnhEdit,noiDung : req.body.__noiDungEdit,
-                                                      ngayThang: req.body.__ngayThangEdit,linkAnh:req.body.__linkAnhEdit},function (err){
+                                                      ngaythang: req.body.__ngayThangEdit,linkAnh:req.body.__linkAnhEdit},function (err){
     var data=Img.find({},function (err,data){
       console.log(err)
-      res.render('editdata', { title: 'Express' ,data :data});
+      res.render('index', { title: 'Express' ,data :data});
   })  })
 
 });
@@ -100,6 +102,16 @@ router.post('/editimgdone', function(req, res, next) {
 router.get('/getAll', function(req, res, next) {
   Img.find({},function (err,data){
     res.send(data)
+  })
+
+});
+
+
+//tim kiem -----------------------------------------------------------
+router.post('/timkiem', function(req, res, next) {
+  var data=Img.find({tenAnh : req.body.id_tk},function (err,data){
+    console.log(err)
+    res.render('index', { title: 'Express' ,data :data});
   })
 
 });

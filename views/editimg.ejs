@@ -19,10 +19,10 @@
   <br>
   <br>
   <br>
-  <a style="text-decoration-line: none ;margin-left: 10px"  href="/"><h3 style="color: #00B7FF">Hình nền điện thoại đẹp cho dế yêu của bạn.</h3>
+  <a style="text-decoration-line: none ;margin-left: 10px"  href="/"><h3 style="color: #00B7FF">Home</h3>
   </a>
-  <a style="text-decoration-line: none;margin-right: 10px;text-align: end" href="/add"><h5 style="color: black">Add</h5></a>
-  <a style="text-decoration-line: none;margin-right: 10px;text-align: end" href="/editdata"><h5 style="color: black">Edit Database</h5></a>
+  <a style="text-decoration-line: none;margin-right: 10px;text-align: end" href="/add"><h5 style="color: black;text-align: start">Add</h5></a>
+
 
   <br>
   <br>
@@ -31,17 +31,18 @@
 <div style="background-color: gainsboro">
   <br>
   <br>
-  <h3>Edit Ảnh :</h3><br><br>
-  <div class="container" style="text-align: center;width: 60% ;float: left" >
+  <h3>Edit  :</h3><br><br>
+  <div class="container" style="text-align: start;width: 60% ;float: left" >
     <form method="post" action="/editimgdone" enctype="application/x-www-form-urlencoded">
       <input name="__idEdit" hidden value="<%= data.id%>">
-      <h4>Tên ảnh :</h4>
-      <input style="width: 50%" name="__tenAnhEdit"  autofocus value="<%= data.tenAnh%>"><br>
-      <h4>Nội dung :</h4>
-      <input style="width: 50%" name="__noiDungEdit" value="<%= data.noiDung%>"><br>
-      <h4>Ngày tháng :</h4>
-      <input style="width: 50%" name="__ngayThangEdit" value="<%= data.ngayThang%>" type="date" ><br>
-      <h4>Link ảnh :</h4>
+      <h4>Id  :</h4>
+      <h3><%= data.tenAnh%></h3><br>
+
+      <h4>Email :</h4>
+      <input style="width: 50%" name="__noiDungEdit" type="email" value="<%= data.noiDung%>"><br>
+      <h4>Dia chi :</h4>
+      <input style="width: 50%" name="__ngayThangEdit" value="<%= data.ngayThang%>"  ><br>
+      <h4>Pass :</h4>
       <input style="width: 50%" name="__linkAnhEdit"  value="<%= data.linkAnh %>"><br>
       <br>
       <br>
@@ -49,9 +50,7 @@
 
     </form>
   </div>
-  <div style="width: 39%; float: left">
-    <img style="width: 90%;height: auto" src="<%= data.linkAnh %>">
-  </div>
+
 
 </div>
 
